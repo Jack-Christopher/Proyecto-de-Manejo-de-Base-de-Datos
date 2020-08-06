@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     administrador.cpp \
     controlproductosform.cpp \
+    controlvendedoresform.cpp \
     database.cpp \
     databasefunctions.cpp \
     main.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
 HEADERS += \
     administrador.h \
     controlproductosform.h \
+    controlvendedoresform.h \
     database.h \
     databasefunctions.h \
     login.h \
@@ -38,6 +40,7 @@ HEADERS += \
 
 FORMS += \
     controlproductosform.ui \
+    controlvendedoresform.ui \
     login.ui \
     mainwindow.ui
 
