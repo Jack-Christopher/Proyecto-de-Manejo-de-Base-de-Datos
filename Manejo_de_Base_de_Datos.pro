@@ -21,6 +21,7 @@ SOURCES += \
     databasefunctions.cpp \
     main.cpp \
     login.cpp \
+    producto.cpp \
     vendedor.cpp
 
 HEADERS += \
@@ -28,6 +29,7 @@ HEADERS += \
     database.h \
     databasefunctions.h \
     login.h \
+    producto.h \
     vendedor.h
 
 FORMS += \
