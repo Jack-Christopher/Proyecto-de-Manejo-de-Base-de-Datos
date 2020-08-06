@@ -4,6 +4,8 @@
 #include <QSqlDatabase>
 #include <mutex>
 #include <QSqlTableModel>
+#include "controlproductosform.h"
+#include "controlvendedoresform.h"
 
 class DataBase
 {
@@ -25,6 +27,8 @@ public:
     QSqlQuery doQuery(QString query);
     int doQuery(QString usuario, QString clave);
     void doQuery(QVector<std::tuple<QString,QString,QString>> &secuenciaDeUsuarios);
+    static QSqlTableModel *newtablemodel(QSqlTableModel * modelo, ControlProductosForm * ptr);
+    static QSqlTableModel *newtablemodel(QSqlTableModel * modelo, ControlVendedoresForm * ptr);
 };
 
 #endif // DATABASE_H

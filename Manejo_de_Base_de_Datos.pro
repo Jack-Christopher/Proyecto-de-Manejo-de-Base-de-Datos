@@ -24,6 +24,7 @@ SOURCES += \
     main.cpp \
     login.cpp \
     mainwindow.cpp \
+    modificarproductodialog.cpp \
     producto.cpp \
     registrarproductodialog.cpp \
     registrarvendedordialog.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     databasefunctions.h \
     login.h \
     mainwindow.h \
+    modificarproductodialog.h \
     producto.h \
     registrarproductodialog.h \
     registrarvendedordialog.h \
@@ -47,6 +49,7 @@ FORMS += \
     controlvendedoresform.ui \
     login.ui \
     mainwindow.ui \
+    modificarproductodialog.ui \
     registrarproductodialog.ui \
     registrarvendedordialog.ui
 

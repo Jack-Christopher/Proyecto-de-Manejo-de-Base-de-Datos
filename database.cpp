@@ -4,6 +4,9 @@
 #include <thread>
 #include <QDebug>
 #include <QSqlError>
+#include "databasefunctions.h"
+#include "controlproductosform.h"
+#include "controlvendedoresform.h"
 
 
 DataBase::DataBase(QString nombreDeConexion)
@@ -97,3 +100,30 @@ QSqlQuery DataBase::doQuery(QString query)
     return q;
 }
 
+
+QSqlTableModel *DataBase::newtablemodel(QSqlTableModel * modelo, ControlProductosForm * ptr)
+{
+    modelo = new QSqlTableModel(ptr, singletonDatabase);
+    modelo->setTable("producto");
+    modelo->select();
+    modelo->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+    modelo->setHeaderData(1, Qt::Horizontal, QObject::tr("Nombre"));
+    modelo->setHeaderData(2, Qt::Horizontal, QObject::tr("Marca"));
+    modelo->setHeaderData(3, Qt::Horizontal, QObject::tr("Precio"));
+    modelo->setHeaderData(4, Qt::Horizontal, QObject::tr("Cantidad"));
+
+    return modelo;
+}
+
+
+QSqlTableModel *DataBase::newtablemodel(QSqlTableModel * modelo, ControlVendedoresForm * ptr)
+{
+    modelo = new QSqlTableModel(ptr, singletonDatabase);
+    modelo->setTable("vendedor");
+    modelo->select();
+    modelo->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+    modelo->setHeaderData(1, Qt::Horizontal, QObject::tr("Nombre"));
+    modelo->setHeaderData(2, Qt::Horizontal, QObject::tr("Clave"));
+    modelo->setHeaderData(3, Qt::Horizontal, QObject::tr("Privilegios"));
+    return modelo;
+}
