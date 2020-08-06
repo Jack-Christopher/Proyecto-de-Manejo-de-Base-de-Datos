@@ -8,7 +8,7 @@
 enum state { esperando, cerrarSesion, cerrarAplicacion};
 
 class Facade
-{    
+{
     state theState;
 public:
     Facade();

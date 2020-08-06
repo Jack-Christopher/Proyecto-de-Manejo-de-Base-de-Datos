@@ -1,6 +1,7 @@
 #include "databasefunctions.h"
 #include <QSqlQuery>
 #include <QString>
+#include <QVariant>
 #include <thread>
 #include <sstream>
 #include "producto.h"
@@ -69,5 +70,7 @@ QString DataBaseFunctions::getThreadId(QString conexion, std::thread::id id)
 
     return nombreDeConexion;
 }
+
+
 
 

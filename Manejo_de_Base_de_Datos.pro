@@ -2,7 +2,7 @@ QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++14
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -21,9 +21,9 @@ SOURCES += \
     controlvendedoresform.cpp \
     database.cpp \
     databasefunctions.cpp \
+    dialog.cpp \
     facade.cpp \
     main.cpp \
-    login.cpp \
     mainwindow.cpp \
     modificarproductodialog.cpp \
     producto.cpp \
@@ -37,8 +37,8 @@ HEADERS += \
     controlvendedoresform.h \
     database.h \
     databasefunctions.h \
+    dialog.h \
     facade.h \
-    login.h \
     mainwindow.h \
     modificarproductodialog.h \
     producto.h \
@@ -49,7 +49,7 @@ HEADERS += \
 FORMS += \
     controlproductosform.ui \
     controlvendedoresform.ui \
-    login.ui \
+    dialog.ui \
     mainwindow.ui \
     modificarproductodialog.ui \
     registrarproductodialog.ui \

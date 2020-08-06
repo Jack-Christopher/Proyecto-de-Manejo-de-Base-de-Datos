@@ -6,7 +6,7 @@
 #include <QVector>
 #include "administrador.h"
 #include "vendedor.h"
-#include "login.h"
+#include "dialog.h"
 #include "controlproductosform.h"
 #include "controlvendedoresform.h"
 
