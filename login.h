@@ -1,21 +1,22 @@
-#ifndef LOGIN_H
-#define LOGIN_H
+#ifndef DIALOG_H
+#define DIALOG_H
 
 #include <QDialog>
+#include "vendedor.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class LogIn; }
+namespace Ui { class Dialog; }
 QT_END_NAMESPACE
 
-class LogIn : public QDialog
+class Dialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    LogIn(QWidget *parent = nullptr);
+    Dialog(QWidget *parent = nullptr);
     bool getIsAdmin();
     void saludar();
-    ~LogIn();
+    ~Dialog();
 
 private slots:
     void on_buttonBoxLogin_accepted();
@@ -23,8 +24,8 @@ private slots:
     void on_buttonBoxLogin_rejected();
 
 private:
-    Ui::LogIn *ui;
+    Ui::Dialog *ui;
     bool isAdmin;
     QVector<std::tuple<QString,QString,QString>> secuenciaDeUsuarios;
 };
-#endif // LOGIN_H
+#endif // DIALOG_H
