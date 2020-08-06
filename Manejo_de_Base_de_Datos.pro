@@ -20,13 +20,15 @@ SOURCES += \
     database.cpp \
     databasefunctions.cpp \
     main.cpp \
-    login.cpp
+    login.cpp \
+    vendedor.cpp
 
 HEADERS += \
     administrador.h \
     database.h \
     databasefunctions.h \
-    login.h
+    login.h \
+    vendedor.h
 
 FORMS += \
     login.ui
