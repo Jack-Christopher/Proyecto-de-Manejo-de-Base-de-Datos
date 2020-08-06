@@ -21,6 +21,7 @@ SOURCES += \
     databasefunctions.cpp \
     main.cpp \
     login.cpp \
+    mainwindow.cpp \
     producto.cpp \
     vendedor.cpp
 
@@ -29,11 +30,13 @@ HEADERS += \
     database.h \
     databasefunctions.h \
     login.h \
+    mainwindow.h \
     producto.h \
     vendedor.h
 
 FORMS += \
-    login.ui
+    login.ui \
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
