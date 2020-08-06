@@ -13,9 +13,18 @@ class LogIn : public QDialog
 
 public:
     LogIn(QWidget *parent = nullptr);
+    bool getIsAdmin();
+    void saludar();
     ~LogIn();
+
+private slots:
+    void on_buttonBoxLogin_accepted();
+
+    void on_buttonBoxLogin_rejected();
 
 private:
     Ui::LogIn *ui;
+    bool isAdmin;
+    QVector<std::tuple<QString,QString,QString>> secuenciaDeUsuarios;
 };
 #endif // LOGIN_H
