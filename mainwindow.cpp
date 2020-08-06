@@ -5,7 +5,7 @@
 #include "registrarproductodialog.h"
 #include "registrarvendedordialog.h"
 #include "modificarproductodialog.h"
-#include "dialog.h"
+#include "login.h"
 #include "administrador.h"
 #include "vendedor.h"
 #include "databasefunctions.h"
