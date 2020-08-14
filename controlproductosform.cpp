@@ -3,10 +3,11 @@
 #include <QSqlTableModel>
 #include <QSqlQuery>
 #include <QDebug>
-
+#include <QMessageBox>
 #include "databasefunctions.h"
 #include "database.h"
 
+// Inicialización de los datos con valores por defecto
 ControlProductosForm::ControlProductosForm(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ControlProductosForm)
@@ -20,6 +21,8 @@ ControlProductosForm::~ControlProductosForm()
     delete ui;
 }
 
+
+// Configura las vistas de las tablas
 void ControlProductosForm::configurarTabla()
 {
     modeloProducto = DataBase::newtablemodel(modeloProducto,this);
@@ -48,9 +51,15 @@ void ControlProductosForm::on_pushButtonEliminarP_clicked()
 
 void ControlProductosForm::on_pushButtonVenderP_clicked()
 {
-    DataBaseFunctions dbf;
-
     Producto p = dbf(filaID);
+    if (p.getNombreP() == "")
+    {
+        QMessageBox::warning(this, "Limite de ventas alcanzado", "No puede vender más de 15 productos");
+        return;
+    }
+
+    dbf++;
+
     p--;
     if(p.getCantidad() > 0)
     {
@@ -65,7 +74,8 @@ void ControlProductosForm::on_pushButtonVenderP_clicked()
     }
 }
 
-
+// Almacena el elemento seleccionado de la tabla para posteriores operaciones
+// como eliminar o modificar
 void ControlProductosForm::on_tableViewProductos_clicked(const QModelIndex &index)
 {
     filaID = modeloProducto->data(index).toInt();

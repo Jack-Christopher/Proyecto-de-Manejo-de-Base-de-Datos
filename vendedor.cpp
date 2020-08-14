@@ -1,5 +1,6 @@
 #include "vendedor.h"
 
+// Inicialización de los datos con valores por defecto
 Vendedor::Vendedor(int id , const QString &nombre , const QString &clave)
     :idVendedor(id)
     , nombreVendedor(nombre)
@@ -10,6 +11,8 @@ Vendedor::Vendedor(int id , const QString &nombre , const QString &clave)
 
 }
 
+
+// Sobrecarga de operadores
 
 bool operator<( Vendedor newVendedor, Vendedor oldVendedor)
 {

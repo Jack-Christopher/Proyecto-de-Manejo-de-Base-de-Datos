@@ -1,6 +1,7 @@
 #include "producto.h"
 #include <QString>
 
+// Inicialización de los datos con valores por defecto
 Producto::Producto(int id , const QString &nombre , const QString &marca, const double precio, const int cantidad)
     :idProducto(id)
     , nombreProducto(nombre)
@@ -12,6 +13,8 @@ Producto::Producto(int id , const QString &nombre , const QString &marca, const 
 {
 
 }
+
+// Sobrecarga de operadores
 
 void Producto::operator-- (int n)
 {

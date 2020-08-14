@@ -31,9 +31,13 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+// Muestra un mensaje con los créditos
 void MainWindow::on_actionAcerca_de_triggered()
 {
-    QMessageBox::information(this, "Mensaje", "Este programa fue desarrollado por el equipo DELTA");
+    QMessageBox::information(this, "Mensaje", "Este programa fue desarrollado por el equipo DELTA"
+                                              ": Jack Christopher Huaihua Huayhua"
+                                              " Juan Jose Villalobos Baños"
+                                              " Alvaro Joel Ticona Motta");
 }
 
 void MainWindow::on_actionMostrar_Productos_triggered()

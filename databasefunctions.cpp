@@ -1,12 +1,10 @@
-#include "databasefunctions.h"
 #include <QSqlQuery>
 #include <QString>
-#include <QVariant>
 #include <thread>
 #include <sstream>
 #include "producto.h"
 #include "database.h"
-
+#include "databasefunctions.h"
 
 DataBaseFunctions::DataBaseFunctions()
 {
@@ -14,8 +12,18 @@ DataBaseFunctions::DataBaseFunctions()
 }
 
 
+// Obtiene un producto de la base de datos
+// usando e índice de éste
 Producto DataBaseFunctions::operator()(int index)
 {
+    Producto p1;
+
+    // Controla el numero de vetas posibles
+    if (cantidadDeVentas > 14)
+    {
+        return p1;
+    }
+
     QString nombreDeConexion =  DataBaseFunctions::getThreadId("Conexion_", std::this_thread::get_id());
 
     DataBase *db = DataBase::getInstance(nombreDeConexion);
@@ -30,7 +38,7 @@ Producto DataBaseFunctions::operator()(int index)
     double precio = q.value(2).toString().toDouble();
     int cantidad= q.value(3).toString().toInt();
 
-    Producto p1;
+
     p1.setMarcaP(marca);
     p1.setNombreP(nombre);
     p1.setPrecioP(precio);
@@ -39,7 +47,7 @@ Producto DataBaseFunctions::operator()(int index)
     return p1;
 }
 
-
+// Actualiza los datos de un producto
 void DataBaseFunctions::operator()(Producto p1, int index)
 {
     QString nombreDeConexion =  DataBaseFunctions::getThreadId("Conexion_", std::this_thread::get_id());
@@ -56,7 +64,7 @@ void DataBaseFunctions::operator()(Producto p1, int index)
     db->doQuery(query);
 }
 
-
+// Devuelve el nombre del thread actual
 QString DataBaseFunctions::getThreadId(QString conexion, std::thread::id id)
 {
     QString nombreDeConexion = conexion;
@@ -71,6 +79,8 @@ QString DataBaseFunctions::getThreadId(QString conexion, std::thread::id id)
     return nombreDeConexion;
 }
 
-
-
-
+// Sobrecarga de operador de postincremento
+void DataBaseFunctions::operator++ (int n)
+{
+    cantidadDeVentas++;
+}

@@ -8,7 +8,8 @@
 #include "controlproductosform.h"
 #include "controlvendedoresform.h"
 
-
+// Crea una base de datos si no ha sido creada todavía
+// de lo contrario devuelve la base de datos creada
 DataBase::DataBase(QString nombreDeConexion)
 {
     singletonDatabase = QSqlDatabase::addDatabase("QSQLITE", nombreDeConexion);
@@ -18,11 +19,14 @@ DataBase::DataBase(QString nombreDeConexion)
     }
 }
 
+// Se hace uso del Patrón de Diseño Lazy Initialization, se
+// inicializa con valores vaíos o nulos al inicio solo se
+// les otorga los valore reales cuando se vayan a usar
 DataBase *DataBase::dataBaseInstance{nullptr};
 QSqlDatabase DataBase::singletonDatabase{};
 std::mutex DataBase::myMutex;
 
-
+//Devuelve la instancia a la base de datos única
 DataBase *DataBase::getInstance(QString nombreDeConexion)
 {
     if (dataBaseInstance == nullptr)
@@ -37,6 +41,7 @@ DataBase *DataBase::getInstance(QString nombreDeConexion)
     return dataBaseInstance;
 }
 
+// Crea las tablas necesarias
 int DataBase::doQuery(QString usuario, QString clave)
 {
     const QString DRIVER = "QSQLITE";
@@ -72,7 +77,7 @@ int DataBase::doQuery(QString usuario, QString clave)
     return 0;
 }
 
-
+// Almacena los usuarios en un vector de tuplas
 void DataBase::doQuery(QVector<std::tuple<QString,QString,QString>> &secuenciaDeUsuarios)
 {
     QSqlQuery q(singletonDatabase);
@@ -93,6 +98,7 @@ void DataBase::doQuery(QVector<std::tuple<QString,QString,QString>> &secuenciaDe
 
 }
 
+// Ejecuta una consulta a la base de datos
 QSqlQuery DataBase::doQuery(QString query)
 {
     QSqlQuery q(singletonDatabase);
@@ -100,6 +106,7 @@ QSqlQuery DataBase::doQuery(QString query)
     return q;
 }
 
+//Configura las tablas de los datos (Productos o Vendedores)
 
 QSqlTableModel *DataBase::newtablemodel(QSqlTableModel * modelo, ControlProductosForm * ptr)
 {

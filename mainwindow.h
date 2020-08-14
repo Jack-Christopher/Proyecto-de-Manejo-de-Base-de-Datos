@@ -14,17 +14,24 @@ namespace Ui {
 class MainWindow;
 }
 
+
+// Ventana principal de la aplicación
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
+
+    // Define los privilegios del usuario
+    // De acuerdo a ésto. ciertas opciones estarán disponibles o no
     void setPrivilegios(bool isAdministrador);
 
+    // Inserta un usuario (de tipo Vendedor o Administrador)
     template<typename Tipo>
     void insertarUsuario(Tipo *usuario);
 
+    // Devuelve el estado en el que se encuentra la aplicación
     int getStatus();
     void closeEvent (QCloseEvent *event);
     ~MainWindow();

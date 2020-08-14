@@ -11,15 +11,17 @@ Dialog::Dialog(QWidget *parent)
     , ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+    // Establece que no se vea la contraseña mientras es escrita
     ui->claveLineEdit->setEchoMode(QLineEdit::Password);
 
+
+    // Crea una conexion a la base de datos y alamcena los datos en un vector
     QString nombreDeConexion =  DataBaseFunctions::getThreadId("Conexion_", std::this_thread::get_id());
-
     DataBase *db = DataBase::getInstance(nombreDeConexion);
-
     db->doQuery(secuenciaDeUsuarios);
 
 
+    // Ordena los usuarios del vector
     int i, j, min_idx;
 
     for (i = 0; i < secuenciaDeUsuarios.size()-1; i++)
@@ -56,6 +58,7 @@ void Dialog::on_buttonBoxLogin_accepted()
 
     std::tuple<QString,QString,QString> usuario = std::make_tuple (nombre, clave, privilegios);
 
+    // Realiza la búsqueda del usuario en el vector
     bool  LoginOK = std::binary_search( std::begin(secuenciaDeUsuarios), std::end(secuenciaDeUsuarios), usuario);
 
     if (LoginOK)

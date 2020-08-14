@@ -6,6 +6,7 @@
 #include <QString>
 #include <QDebug>
 
+// Almacena los datos de un objeto Producto
 class Vendedor : public Administrador
 {
     int idVendedor;
@@ -14,13 +15,16 @@ class Vendedor : public Administrador
     QString privilegios;
 
 public:
+    //Constructor
     Vendedor(int id = -1, const QString &nombre = "", const QString &clave = "");
 
+    //Métodos getters
     int getId() const {return idVendedor;}
     QString getNombre() const {return nombreVendedor;};
     QString getClave() const {return claveVendedor;};
     QString getPrivilegios() const {return privilegios;}
 
+    //Métodos setters
     void setId(int newId) {idVendedor = newId;}
     void setNombre(QString &newNombre) {nombreVendedor= newNombre;}
     void setClave(QString &newClave) {claveVendedor = newClave;}

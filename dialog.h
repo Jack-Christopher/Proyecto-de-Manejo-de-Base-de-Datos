@@ -19,6 +19,7 @@ public:
     ~Dialog();
 
 private slots:
+    // Métodos que son ejecutados cuando se inicia sesión
     void on_buttonBoxLogin_accepted();
 
     void on_buttonBoxLogin_rejected();
@@ -26,6 +27,7 @@ private slots:
 private:
     Ui::Dialog *ui;
     bool isAdmin;
+    // Almacena la lista de usuarios
     QVector<std::tuple<QString,QString,QString>> secuenciaDeUsuarios;
 };
 #endif // DIALOG_H

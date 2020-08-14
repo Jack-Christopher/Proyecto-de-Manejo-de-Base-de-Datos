@@ -9,6 +9,8 @@ namespace Ui {
 class RegistrarVendedorDialog;
 }
 
+// Interfaz que sirve para poder introducir los
+// que se van a registrar
 class RegistrarVendedorDialog : public QDialog
 {
     Q_OBJECT

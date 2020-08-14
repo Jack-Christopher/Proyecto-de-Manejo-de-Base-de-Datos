@@ -8,6 +8,9 @@ namespace Ui {
 class ModificarProductoDialog;
 }
 
+
+// Interfaz que sirve para poder introducir los
+// que se van a cambiar
 class ModificarProductoDialog : public QDialog
 {
     Q_OBJECT
